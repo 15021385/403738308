@@ -1,30 +1,39 @@
 # 403738308
-int d1, m1, y1, d2, m2, y2, r1, r3, r2, r;
+int d1, m1, y1, d, m, y, a, b, c;
+            d = 1;
+            m = 1;
+            y = 1404;
+            a = b = c = 0;
+
             d1 = int.Parse(Console.ReadLine());
             m1 = int.Parse(Console.ReadLine());
             y1 = int.Parse(Console.ReadLine());
-           
-            d2 = int.Parse(Console.ReadLine());
-            m2 = int.Parse(Console.ReadLine());
-            y2 = int.Parse(Console.ReadLine());
-            if (m1 <= 6)
-            {
-                r1 = 365 - ((m1 - 1) * 31 + d1);
 
-            }
-            else
+            if (m<=6)
             {
-                r1 = 365 - 186 + ((m1 - 7) * 30 + d1);
+                c = y - (y1+1);     b = 12 - (m1 - m);    a = 31 - d1;
             }
-            if (m1 < 7)
+            if (a == 0)
             {
-                r2 = 365 - ((m2 - 1) * 31 + d2);
+                d1 = 31;
             }
-            else
+            else if (m > 7)
             {
-                r2 = 186 + ((m2 - 7) * 30 + d2);
+                b = 12 - (m1 - 7);       c = 1404 - y1;            a = 30 - d1;  
             }
-            r3 = (y2 - (y1 + 1)) * 365;
-            r = (r3 + r1 + r2) ;
-            Console.WriteLine(r);
+            if (a == 0)
+            {
+                d1 = 30;
+                if (b == 12)
+                {
+                    b = 12; a = 30;
+                    
+                }
+                
+
+            
+            }
+            Console.WriteLine("day is :" + a);
+            Console.WriteLine("month is :" + b);
+            Console.WriteLine("year is :" + c);
             Console.ReadLine();
